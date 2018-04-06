@@ -179,4 +179,4 @@ def loopPcaKnn(loop=1):
 
 
 if __name__ == "__main__":
-    print (format(loopPcaKnn(loop=10), ".3f"))
+    print ("Accuracy: ", format(loopPcaKnn(loop=10), ".3f"))

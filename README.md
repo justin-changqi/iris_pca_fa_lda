@@ -22,9 +22,9 @@ Iris Dataset format
 <!-- x_{n} = \begin{bmatrix}
 sepal\ length (x_{n1}), &sepal\ width (x_{n2}),  &petal\ length (x_{n3}),  &petal\ width (x_{n4})
 \end{bmatrix} -->
-![iris_format_mat](http://latex.codecogs.com/png.latex?%5Csmall%20x_%7Bn%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20sepal%5C%20length%20%28x_%7Bn1%7D%29%2C%20%26sepal%5C%20width%20%28x_%7Bn2%7D%29%2C%20%26petal%5C%20length%20%28x_%7Bn3%7D%29%2C%20%26petal%5C%20width%20%28x_%7Bn4%7D%29%20%5Cend%7Bbmatrix%7D)
+![iris_format_mat](http://latex.codecogs.com/png.latex?%5Cdpi%7B200%7D%20%5Cfn_phv%20%5Ctiny%20x_%7Bn%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20sepal%5C%20length%20%28x_%7Bn1%7D%29%2C%20%26sepal%5C%20width%20%28x_%7Bn2%7D%29%2C%20%26petal%5C%20length%20%28x_%7Bn3%7D%29%2C%20%26petal%5C%20width%20%28x_%7Bn4%7D%29%20%5Cend%7Bbmatrix%7D)
 
 <!-- \forall n=1,...,150 -->
-![](http://latex.codecogs.com/png.latex?%5Cdpi%7B100%7D%20%5Cfn_phv%20%5Csmall%20%5Cforall%20n%3D1%2C...%2C150)
+![](http://latex.codecogs.com/png.latex?%5Cdpi%7B200%7D%20%5Cfn_phv%20%5Ctiny%20%5Cforall%20n%3D1%2C...%2C150)
 <!-- ![first equation](http://latex.codecogs.com/png.latex?%5Cfrac%7Ba%7D%7Bb%7D)
 ![](http://latex.codecogs.com/png.latex?%5Clarge%20%5Csum) -->

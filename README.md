@@ -26,5 +26,3 @@ sepal\ length (x_{n1}), &sepal\ width (x_{n2}),  &petal\ length (x_{n3}),  &peta
 
 <!-- \forall n=1,...,150 -->
 ![](http://latex.codecogs.com/png.latex?%5Cdpi%7B200%7D%20%5Cfn_phv%20%5Ctiny%20%5Cforall%20n%3D1%2C...%2C150)
-<!-- ![first equation](http://latex.codecogs.com/png.latex?%5Cfrac%7Ba%7D%7Bb%7D)
-![](http://latex.codecogs.com/png.latex?%5Clarge%20%5Csum) -->

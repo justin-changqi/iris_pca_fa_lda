@@ -1,3 +1,4 @@
+# Implementation reference: http://sebastianraschka.com/Articles/2014_python_lda.html
 import pandas as pd
 import numpy as np
 import random
@@ -55,7 +56,8 @@ class IrisLDA:
         for key in self.means:
             for i in range(len(self.means[key])):
                 self.means[key][i] /= num_items[key]
-        # print (self.means)
+        # for key in self.means:
+        #     print ("\nMean in class ", key, ": ", np.array(self.means[key]))
         # print (self.train_data_class)
     def getScatterMatrices(self):
         # calculate Sw
@@ -71,7 +73,7 @@ class IrisLDA:
                 s_i += (x_i - mean_c).dot((x_i - mean_c).T)
                 # for i in len(ele):
             self.s_w += s_i
-        # print ('Scatter Within classes (Sb): \n', self.s_w)
+        # print ('\nScatter Within classes (Sb): \n', self.s_w)
 
         # calculate Sb
         self.s_b = np.zeros((self.number_of_features, self.number_of_features))
@@ -88,20 +90,20 @@ class IrisLDA:
             n = len(self.train_data_class[key])
             mean_i = np.reshape(self.means[key], (self.number_of_features, 1))
             self.s_b += n * (mean_i - overall_mean).dot((mean_i - overall_mean).T)
-        # print ('Scatter Between classes (Sb): \n', self.s_b)
+        # print ('\nScatter Between classes (Sb): \n', self.s_b)
 
     def getTranformMatrixW(self,  k=2):
         self.w = np.zeros((self.number_of_features, k))
         eig_vals, eig_vecs = np.linalg.eig(np.linalg.inv(self.s_w).dot(self.s_b))
         eig_vecs = eig_vecs.real
-        # print (eig_vals)
-        # print (eig_vecs)
         eig_vals_sorted_index = sorted(range(len(eig_vals)),key=lambda x:eig_vals[x], reverse=True)
-        # print (eig_vals_sorted_index)
+        # print ("\nEigenvalues of inv(Sw)Sb: \n", eig_vals)
+        # print ("\nEigenvectors of inv(Sw)Sb \n", eig_vecs)
+        # print ("\nSorted Eigenvalues index: ", eig_vals_sorted_index)
         for i in range(k):
             for j in range(self.number_of_features):
                 self.w[j][i] = eig_vecs[j][eig_vals_sorted_index[i]]
-        # print (self.w)
+        # print ("\nProjection Matrix: \n", self.w)
 
     def getProjectedData(self, data):
         data_z = []
@@ -122,9 +124,13 @@ def loopLdaKnn(loop=1):
         iris_data.getTranformMatrixW()
         new_train_data = iris_data.getProjectedData(iris_data.train_data)
         new_test_data = iris_data.getProjectedData(iris_data.test_data)
+        # print (np.array(iris_data.train_data))
+        # print (np.array(new_train_data))
         knn = Knn()
+        print ("Round ",i+1, " 3-NN accuracy: ", format(knn.kNearestNeighbors(new_train_data, new_test_data), ".3f"))
         accuracy += knn.kNearestNeighbors(new_train_data, new_test_data)
     return accuracy/loop
 
 if __name__ == "__main__":
-    print ("Accuracy: ", format(loopLdaKnn(loop=10), ".3f"))
+    np.set_printoptions(precision=3)
+    print ("Average Accuracy: ", format(loopLdaKnn(loop=10), ".3f"))

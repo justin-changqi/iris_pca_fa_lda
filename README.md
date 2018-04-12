@@ -26,3 +26,21 @@ sepal\ length (x_{n1}), &sepal\ width (x_{n2}),  &petal\ length (x_{n3}),  &peta
 
 <!-- \forall n=1,...,150 -->
 ![](http://latex.codecogs.com/png.latex?%5Cdpi%7B200%7D%20%5Cfn_phv%20%5Ctiny%20%5Cforall%20n%3D1%2C...%2C150)
+
+## Problem 3: PCA KNN
+For execute the code
+```
+python3 pca_knn.py
+```
+
+## Problem 4: FA KNN
+For execute the code
+```
+python3 fa_knn.py
+```
+
+## Problem 5: LDA KNN
+For execute the code
+```
+python3 lda_knn.py
+```
